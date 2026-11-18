@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Muraferma Costruzioni (attività di fantasia) — design tokens
+   Concept "Persiane e intonaco". Font self-hosted in assets/fonts/, licenza SIL OFL 1.1.
+   I percorsi url() sono relativi a QUESTO file.
+   ========================================================================== */
+
+/* --- Font (self-hosted, SIL Open Font License 1.1) ------------------------ */
+/* Archivo variabile: un solo file per peso 100–900 e larghezza 62–125 %. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-latin-wdth-normal.woff2") format("woff2");
+}
+
+:root {
+  /* --- Colori primitivi (facciate di paese) --------------------------- */
+  --color-verde:          #1F3B30; /* verde persiana: campiture, testo forte */
+  --color-verde-scuro:    #14271F; /* footer, hover su verde */
+  --color-verde-nebbia:   #C9D6CE; /* testo secondario su verde */
+  --color-ocra:           #D9A43C; /* intonaco ocra: CTA su verde, fascia Facciate */
+  --color-ocra-chiaro:    #E6B95A; /* hover della CTA ocra */
+  --color-ocra-tenue:     #F4E7C8; /* fondo dei segnaposti dichiarati */
+  --color-ocra-inchiostro:#6A4D00; /* testo dei segnaposti */
+  --color-calce:          #F6F6F3; /* fondo pagina: bianco calce, quasi neutro */
+  --color-bianco:         #FFFFFF; /* form, superfici */
+  --color-pietra:         #E8E7E2; /* pietra di Luserna chiara: superfici secondarie */
+  --color-pietra-scura:   #7E837D; /* bordi dei controlli (UI, >= 3:1) */
+  --color-linea:          #D3D4CE; /* filetti (nessun requisito di contrasto) */
+  --color-lavagna:        #1B1F1C; /* testo */
+  --color-lavagna-2:      #4F5752; /* testo secondario */
+  --color-errore:         #A4161A;
+  --color-successo:       #2E6B4A;
+
+  /* --- Colori per ruolo (usare questi nei componenti) --------------------- */
+  --color-bg:                 var(--color-calce);
+  --color-surface:            var(--color-bianco);
+  --color-surface-2:          var(--color-pietra);
+  --color-surface-inverse:    var(--color-verde);
+  --color-surface-inverse-2:  var(--color-verde-scuro);
+  --color-text:               var(--color-lavagna);
+  --color-text-muted:         var(--color-lavagna-2);
+  --color-text-inverse:       var(--color-bianco);
+  --color-text-inverse-muted: var(--color-verde-nebbia);
+  --color-heading:            var(--color-verde);
+  --color-accent:             var(--color-verde);      /* CTA su fondo chiaro */
+  --color-accent-hover:       var(--color-verde-scuro);
+  --color-on-accent:          var(--color-bianco);
+  --color-accent-on-dark:     var(--color-ocra);       /* CTA e numeri su verde */
+  --color-accent-on-dark-hover: var(--color-ocra-chiaro);
+  --color-on-accent-dark:     var(--color-verde);      /* testo sulla CTA ocra */
+  --color-band:               var(--color-ocra);       /* fascia Facciate */
+  --color-on-band:            var(--color-lavagna);
+  --color-link:               var(--color-verde);
+  --color-link-on-dark:       var(--color-ocra);
+  --color-border:             var(--color-pietra-scura); /* input, controlli */
+  --color-border-strong:      var(--color-verde);
+  --color-divider:            var(--color-linea);
+  --color-ph-bg:              var(--color-ocra-tenue);   /* segnaposto */
+  --color-ph-ink:             var(--color-ocra-inchiostro);
+  --color-focus:              var(--color-lavagna);
+  --color-focus-on-dark:      var(--color-ocra);
+  --color-selection:          var(--color-ocra-tenue);
+
+  /* Contrasti verificati (WCAG 2.1, luminanza relativa, calcolati con script):
+     lavagna/calce 15.40 · lavagna/bianco 16.68 · lavagna-2/calce 6.88 · lavagna-2/bianco 7.45 · lavagna-2/pietra 6.02
+     verde/calce 11.23 (titoli, link) · verde/pietra 9.82 · bianco/verde 12.16 · verde-nebbia/verde 8.10
+     ocra/verde 5.40 (testo e CTA su verde) · verde/ocra 5.40 (testo della CTA ocra)
+     verde/ocra-chiaro 6.63 (hover) · lavagna/ocra 7.41 (fascia Facciate)
+     ocra-inchiostro/ocra-tenue 6.40 · bianco/verde-scuro 15.67 · verde-nebbia/verde-scuro 10.44 · ocra/verde-scuro 6.96
+     pietra-scura/bianco 3.87 · pietra-scura/calce 3.57 (solo UI)
+     errore/bianco 7.75 · successo/bianco 6.33
+     DA NON USARE: lavagna-2 su ocra 3.31 · ocra su bianco 2.3 */
+
+  /* --- Tipografia --------------------------------------------------------- */
+  --font-sans:    "Archivo", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-body:    var(--font-sans);
+
+  --stretch-display: 112%;   /* titoli: grottesco largo, solido */
+  --stretch-ui:      106%;   /* pulsanti, menù, etichette */
+  --stretch-body:    100%;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semi:    600;
+  --weight-bold:    700;
+  --weight-black:   800;     /* solo logotipo */
+
+  /* Scala fluida: valori a 390 px -> 1280 px di viewport */
+  --text-xs:   clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);  /* 13 -> 14 note, etichette */
+  --text-sm:   0.9375rem;                                    /* 15 aiuti */
+  --text-base: clamp(1.0625rem, 1.01rem + 0.2vw, 1.125rem);  /* 17 -> 18 corpo */
+  --text-lead: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);  /* 19 -> 22 */
+  --text-h3:   clamp(1.375rem, 1.24rem + 0.55vw, 1.75rem);   /* 22 -> 28 */
+  --text-h2:   clamp(1.875rem, 1.45rem + 1.75vw, 3rem);      /* 30 -> 48 */
+  --text-h1:   clamp(2.125rem, 1.6rem + 2.2vw, 3.5rem);      /* 34 -> 54: "ristrutturazioni" deve stare in riga a 390 px */
+  --text-num:  clamp(2.75rem, 2.15rem + 2.45vw, 4.5rem);     /* numeri dei passi */
+  --text-big:  clamp(2.25rem, 1.6rem + 2.7vw, 4rem);         /* "Rocca Tessera e dintorni" */
+
+  --leading-display: 1.0;
+  --leading-heading: 1.08;
+  --leading-body:    1.55;
+  --leading-tight:   1.3;
+
+  --tracking-display: -0.022em;
+  --tracking-heading: -0.012em;
+  --tracking-ui:       0.005em;
+
+  --measure:        65ch;
+  --measure-narrow: 44ch;
+
+  /* --- Spaziature (base 4 px) --------------------------------------------- */
+  --space-1:  0.25rem;  /*   4 */
+  --space-2:  0.5rem;   /*   8 */
+  --space-3:  0.75rem;  /*  12 */
+  --space-4:  1rem;     /*  16 */
+  --space-5:  1.5rem;   /*  24 */
+  --space-6:  2rem;     /*  32 */
+  --space-7:  3rem;     /*  48 */
+  --space-8:  4rem;     /*  64 */
+  --space-9:  6rem;     /*  96 */
+  --space-10: 8rem;     /* 128 */
+  --space-section: clamp(4rem, 2.9rem + 4.5vw, 7.5rem);   /* 64 -> 120 */
+
+  /* --- Griglia e layout --------------------------------------------------- */
+  --container:    76rem;                                /* 1216 contenuto */
+  --gutter:       clamp(1rem, 0.55rem + 1.8vw, 2rem);   /* 16 -> 32 */
+  --grid-gap:     clamp(1rem, 0.7rem + 1.2vw, 1.75rem); /* 16 -> 28 */
+  /* Breakpoint (riferimento): 600 · 768 (header completo, barra mobile nascosta) · 1024 · 1280 */
+
+  /* --- Bordi, raggi, ombre ------------------------------------------------ */
+  --border-hair:  1px;
+  --border-ui:    1.5px;    /* input, pulsanti a contorno */
+  --border-mark:  3px;      /* voce di menù corrente */
+  --radius-0: 0;            /* foto, fasce */
+  --radius-1: 3px;          /* pulsanti, campi, etichette */
+  --shadow-none: none;      /* niente ombre: la profondità la danno foto e campiture */
+
+  /* --- Dimensioni funzionali ---------------------------------------------- */
+  --tap-min: 44px;
+  --bar-h:   60px;
+  --btn-h:   52px;
+  --input-h: 52px;
+  --icon-sm: 20px;
+  --icon-md: 24px;
+
+  /* --- Livelli ------------------------------------------------------------ */
+  --z-header: 50;
+  --z-bar:    60;
+  --z-skip:   100;
+
+  /* --- Movimento ---------------------------------------------------------- */
+  --dur-fast:  150ms;    /* colori, sottolineature */
+  --dur-base:  250ms;
+  --dur-hero:  1100ms;   /* unico momento: l'anta verde si chiude sulla foto */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);   /* esponenziale */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-hero: 0ms;
+  }
+}
